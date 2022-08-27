@@ -9,6 +9,30 @@ import { useState } from "react";
 import Meal from "../components/meal";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { getDirection, isEn } from "../infrastructure/helpers/lang_helper";
+import i18next from "i18next";
+
+i18next.init({
+  lng: "en",
+  debug: true,
+  resources: {
+    en: {
+      translation: {
+        key: "hello world",
+        view_menu: "View Menu",
+        title: "Um Al Majd Kitchen",
+        subTitle: "Syrian Kitchen",
+      },
+    },
+    ar: {
+      translation: {
+        key: "مرحبا",
+        view_menu: "عرض قائمة الطعام",
+        title: "مطبخ أم المجد",
+        subTitle: "المطبخ السوري",
+      },
+    },
+  },
+});
 
 interface IProps {
   data: ICategory[];
