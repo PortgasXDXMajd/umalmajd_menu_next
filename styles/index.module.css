@@ -68,22 +68,23 @@
 
 .langBotton {
   position: absolute;
-  height: 3rem;
+  max-height: 2.5rem;
+  min-height: 2.5rem;
   top: 3vw;
   right: 3vw;
   min-width: 10vw;
   display: flex;
-  background-color: #e7eefb;
+  background-color: #fff;
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 1rem;
   border: none;
   box-shadow: 5px 5px 20px #9b9a9a;
 }
 .langBottonLabel {
   color: black;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 900;
 }
 
 .botton:hover {

@@ -8,6 +8,7 @@ import { useState } from "react";
 import { GetServerSideProps } from "next";
 import { NextPage } from "next";
 import { ICategory } from "../infrastructure/interfaces/ICategory";
+import { isEn } from "../infrastructure/helpers/lang_helper";
 
 i18next.init({
   lng: "en",
@@ -84,7 +85,7 @@ const IndexPage: NextPage<IProps> = ({ data }) => {
         </p>
       </div>
       <button className={styles.langBotton} onClick={handleLang}>
-        <p className={styles.langBottonLabel}>{i18next.language}</p>
+        <p className={styles.langBottonLabel}>{isEn() ? `ع` : `EN`}</p>
       </button>
     </Stack>
   );
