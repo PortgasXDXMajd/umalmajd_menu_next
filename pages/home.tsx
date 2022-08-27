@@ -8,7 +8,6 @@ import { IMeal, MealModel } from "../infrastructure/interfaces/IMeal";
 import { useState } from "react";
 import Meal from "../components/meal";
 import { motion, useScroll, useSpring } from "framer-motion";
-import BottomSheet from "../components/bottom_sheet";
 import { isEn } from "../infrastructure/helpers/lang_helper";
 
 interface IProps {
