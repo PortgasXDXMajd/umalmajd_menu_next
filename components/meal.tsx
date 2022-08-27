@@ -26,22 +26,13 @@ const Meal: FC<IProps> = ({ meal }) => {
           <AccessTimeFilledIcon />
           <h5>{meal.hoursToOrder} min</h5>
         </div>
-        <motion.div
-          drag
-          dragConstraints={{
-            top: 10,
-            left: 10,
-            right: 10,
-            bottom: 10,
-          }}
-          className={styles.imageBox}
-        >
+        <div className={styles.imageBox}>
           <Image
             layout="fill"
             src={ImageHelper.getImageUrl(meal.topImageUrl)}
             alt={"pic"}
           />
-        </motion.div>
+        </div>
         <div className={styles.column}>
           <h3>{isEn() ? meal.nameEn : meal.nameAr}</h3>
           <p>{isEn() ? meal.smallDescriptionEn : meal.smallDescriptionAr}</p>
