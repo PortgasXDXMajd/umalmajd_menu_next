@@ -9,6 +9,7 @@ import { GetServerSideProps } from "next";
 import { NextPage } from "next";
 import { ICategory } from "../infrastructure/interfaces/ICategory";
 import { isEn } from "../infrastructure/helpers/lang_helper";
+import Spinner from "../components/spinner";
 
 i18next.init({
   lng: "en",
@@ -40,10 +41,15 @@ interface IProps {
 const IndexPage: NextPage<IProps> = ({ data }) => {
   const router = useRouter();
   const [lang, setlang] = useState<string>("en");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleViewMenu = () => {
-    router.push("/home");
+    if (!isLoading) {
+      setIsLoading(true);
+      router.push("/home");
+    }
   };
+
   const handleLang = () => {
     console.log(i18next.language);
     if (i18next.language == "en") {
@@ -70,7 +76,7 @@ const IndexPage: NextPage<IProps> = ({ data }) => {
       </div>
       <button className={styles.botton} onClick={handleViewMenu}>
         <p className={styles.bottonLabel}>
-          <>{i18next.t("view_menu")}</>
+          {!isLoading ? <>{i18next.t("view_menu")}</> : <Spinner />}
         </p>
       </button>
       <div className={styles.title}>
