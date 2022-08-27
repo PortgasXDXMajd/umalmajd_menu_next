@@ -1,14 +1,14 @@
 import { NextPage } from "next";
 import SearchBar from "../components/search_bar";
 import styles from "../styles/home.module.css";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { ICategory } from "../infrastructure/interfaces/ICategory";
 import CategorySection from "../components/category_section";
 import { IMeal, MealModel } from "../infrastructure/interfaces/IMeal";
 import { useState } from "react";
 import Meal from "../components/meal";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { isEn } from "../infrastructure/helpers/lang_helper";
+import { getDirection, isEn } from "../infrastructure/helpers/lang_helper";
 
 interface IProps {
   data: ICategory[];
@@ -64,14 +64,17 @@ const Home: NextPage<IProps> = ({ data }) => {
             data.map((cat) => <CategorySection key={cat.id} category={cat} />)
           ) : (
             <motion.div
+              dir={getDirection()}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className={styles.searchContainer}
             >
               <h5 className={styles.searchedTitle}>
                 We found {filteredList.length}
-                {filteredList.length > 1 ? ` meals` : ` meal`}
+                {filteredList.length > 1 ? ` results` : ` result`}
               </h5>
+              <br />
+              <br />
               {filteredList.map((meal) => (
                 <Meal key={meal.id} meal={new MealModel(meal)} />
               ))}
@@ -85,7 +88,7 @@ const Home: NextPage<IProps> = ({ data }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`https://admin.umalmajd.com/api/menu`);
   const data = await res.json();
   return { props: { data } };
