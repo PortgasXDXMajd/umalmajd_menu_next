@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { getDirection, isEn } from "../infrastructure/helpers/lang_helper";
 import { ICategory } from "../infrastructure/interfaces/ICategory";
 import styles from "../styles/categorySection.module.css";
 import Meal from "./meal";
@@ -9,8 +10,8 @@ interface IProps {
 
 const CategorySection: FC<IProps> = ({ category }) => {
   return (
-    <div className={styles.container}>
-      <h2>{category.nameEn}</h2>
+    <div className={isEn() ? styles.container : styles.containerAR}>
+      <h2 dir={getDirection()}>{isEn() ? category.nameEn : category.nameAr}</h2>
       {category.meals.map((meal) => (
         <Meal key={meal.id} meal={meal} />
       ))}

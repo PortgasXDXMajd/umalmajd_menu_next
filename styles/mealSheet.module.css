@@ -1,61 +1,14 @@
 .container {
   background-color: white;
   width: 100%;
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 1rem;
   border-radius: 2rem;
-  box-shadow: 5px 5px 12px #bfbebe;
-  background-image: linear-gradient(80deg, #e9cfd2, #454754);
-  margin-bottom: 3.5rem;
-  min-height: 200px;
+  min-height: 60vh;
 }
 
 .column {
   flex-direction: column;
   align-items: baseline;
   justify-self: start;
-  padding: 1rem;
+  padding: 0.5rem;
   color: #000;
-}
-
-.column p {
-  font-size: 15px;
-}
-
-.timingBox {
-  position: absolute;
-  right: 35px;
-  top: -25px;
-  background-color: white;
-  min-width: 75px;
-  height: 50px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1.5rem;
-  box-shadow: 0px 5px 12px #4e4d4d;
-}
-
-.imageBox {
-  position: absolute;
-  bottom: -10px;
-  right: -5px;
-  background-color: white;
-  width: 150px;
-  height: 150px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5rem;
-  box-shadow: 0px 5px 12px #4e4d4d;
-  overflow: "hidden";
-}
-
-.imageBox img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }

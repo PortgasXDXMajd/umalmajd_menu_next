@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { IMeal, MealModel } from "../infrastructure/interfaces/IMeal";
+import { MealModel } from "../infrastructure/interfaces/IMeal";
 import Image from "next/image";
 import styles from "../styles/meal.module.css";
 import { ImageHelper } from "../infrastructure/helpers/image_helper";
@@ -7,7 +7,7 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import { motion } from "framer-motion";
 import BottomSheet from "../components/bottom_sheet";
 import MealSheet from "../components/meal_sheet";
-import { isEn } from "../infrastructure/helpers/lang_helper";
+import { getDirection, isEn } from "../infrastructure/helpers/lang_helper";
 
 interface IProps {
   meal: MealModel;
@@ -16,24 +16,24 @@ interface IProps {
 const Meal: FC<IProps> = ({ meal }) => {
   const [IsOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <>
+    <div>
       <motion.div
         whileTap={{ scale: 1.1 }}
-        className={styles.container}
+        className={isEn() ? styles.container : styles.containerAR}
         onClick={() => setIsOpen(!IsOpen)}
       >
-        <div className={styles.timingBox}>
+        <div className={isEn() ? styles.timingBox : styles.timingBoxAR}>
           <AccessTimeFilledIcon />
           <h5>{meal.hoursToOrder} min</h5>
         </div>
-        <div className={styles.imageBox}>
+        <div className={isEn() ? styles.imageBox : styles.imageBoxAR}>
           <Image
             layout="fill"
             src={ImageHelper.getImageUrl(meal.topImageUrl)}
             alt={"pic"}
           />
         </div>
-        <div className={styles.column}>
+        <div dir={getDirection()} className={styles.column}>
           <h3>{isEn() ? meal.nameEn : meal.nameAr}</h3>
           <p>{isEn() ? meal.smallDescriptionEn : meal.smallDescriptionAr}</p>
           <h4>{meal.price} OMR</h4>
@@ -42,7 +42,7 @@ const Meal: FC<IProps> = ({ meal }) => {
       <BottomSheet isOpen={IsOpen} onChange={setIsOpen} disableSwipe={false}>
         <MealSheet meal={meal} />
       </BottomSheet>
-    </>
+    </div>
   );
 };
 
