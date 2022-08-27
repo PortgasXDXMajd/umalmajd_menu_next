@@ -20,7 +20,7 @@ i18next.init({
         key: "hello world",
         view_menu: "View Menu",
         title: "Um Al Majd Kitchen",
-        subTitle: "Syrian Kitchen",
+        subTitle: "Al Sham Kitchen",
       },
     },
     ar: {
@@ -28,7 +28,7 @@ i18next.init({
         key: "مرحبا",
         view_menu: "عرض قائمة الطعام",
         title: "مطبخ أم المجد",
-        subTitle: "المطبخ السوري",
+        subTitle: "المطبخ الشامي",
       },
     },
   },
