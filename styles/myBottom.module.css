@@ -1,0 +1,16 @@
+.container {
+  z-index: 8;
+  display: none;
+  background-color: red;
+}
+
+.body {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    display: unset;
+  }
+}
