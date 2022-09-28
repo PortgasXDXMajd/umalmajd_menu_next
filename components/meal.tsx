@@ -35,7 +35,13 @@ const Meal: FC<IProps> = ({ meal }) => {
         </div>
         <div dir={getDirection()} className={styles.column}>
           <h3>{isEn() ? meal.nameEn : meal.nameAr}</h3>
-          <p>{isEn() ? meal.smallDescriptionEn : meal.smallDescriptionAr}</p>
+          {isEn()
+            ? meal.smallDescriptionEn
+                .split(/[;]+/)
+                .map((line) => <p key={line}>{line}</p>)
+            : meal.smallDescriptionAr
+                .split(/[;]+/)
+                .map((line) => <p key={line}>{line}</p>)}
           <h4>{meal.price} OMR</h4>
         </div>
       </motion.div>
