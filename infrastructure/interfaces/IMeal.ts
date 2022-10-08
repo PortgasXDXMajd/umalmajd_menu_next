@@ -17,16 +17,16 @@ export interface IMeal {
 
 export class MealModel {
   id: string;
-  nameEn: string;
-  nameAr: string;
-  smallDescriptionEn: string;
-  smallDescriptionAr: string;
-  descriptionEn: string;
-  descriptionAr: string;
-  price: number;
-  minsToOrder: number;
-  topImageUrl: string;
-  imageUrl: string;
+  nameEn: string | null;
+  nameAr: string | null;
+  smallDescriptionEn: string | null;
+  smallDescriptionAr: string | null;
+  descriptionEn: string | null;
+  descriptionAr: string | null;
+  price: number | null;
+  minsToOrder: number | null;
+  topImageUrl: string | null;
+  imageUrl: string | null;
   categoryId: string;
 
   constructor(data: IMeal) {

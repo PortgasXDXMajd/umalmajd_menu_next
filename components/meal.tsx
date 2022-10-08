@@ -29,18 +29,18 @@ const Meal: FC<IProps> = ({ meal }) => {
         <div className={isEn() ? styles.imageBox : styles.imageBoxAR}>
           <Image
             layout="fill"
-            src={ImageHelper.getImageUrl(meal.topImageUrl)}
+            src={ImageHelper.getImageUrl(meal.topImageUrl!)}
             alt={"pic"}
           />
         </div>
         <div dir={getDirection()} className={styles.column}>
           <h3>{isEn() ? meal.nameEn : meal.nameAr}</h3>
           {isEn()
-            ? meal.smallDescriptionEn
-                .split(/[;]+/)
+            ? meal
+                .smallDescriptionEn!.split(/[;]+/)
                 .map((line) => <p key={line}>{line}</p>)
-            : meal.smallDescriptionAr
-                .split(/[;]+/)
+            : meal
+                .smallDescriptionAr!.split(/[;]+/)
                 .map((line) => <p key={line}>{line}</p>)}
           <h4>{meal.price} OMR</h4>
         </div>
