@@ -24,7 +24,7 @@ const Meal: FC<IProps> = ({ meal }) => {
       >
         <div className={isEn() ? styles.timingBox : styles.timingBoxAR}>
           <AccessTimeFilledIcon />
-          <h5>{meal.hoursToOrder} min</h5>
+          <h5>{meal.minsToOrder} min</h5>
         </div>
         <div className={isEn() ? styles.imageBox : styles.imageBoxAR}>
           <Image

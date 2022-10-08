@@ -9,7 +9,7 @@ export interface IMeal {
   descriptionEn: string;
   descriptionAr: string;
   price: number;
-  hoursToOrder: number;
+  minsToOrder: number;
   topImageUrl: string;
   imageUrl: string;
   categoryId: string;
@@ -24,7 +24,7 @@ export class MealModel {
   descriptionEn: string;
   descriptionAr: string;
   price: number;
-  hoursToOrder: number;
+  minsToOrder: number;
   topImageUrl: string;
   imageUrl: string;
   categoryId: string;
@@ -38,7 +38,7 @@ export class MealModel {
     this.smallDescriptionAr = data.smallDescriptionAr;
     this.descriptionAr = data.descriptionAr;
     this.price = data.price;
-    this.hoursToOrder = data.hoursToOrder;
+    this.minsToOrder = data.minsToOrder;
     this.topImageUrl = data.topImageUrl;
     this.imageUrl = data.imageUrl;
     this.categoryId = data.categoryId;
