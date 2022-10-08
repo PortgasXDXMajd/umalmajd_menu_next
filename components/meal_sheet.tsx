@@ -16,7 +16,7 @@ const MealSheet: FC<IProps> = ({ meal }) => {
         layout="responsive"
         width={100}
         height={50}
-        src={ImageHelper.getImageUrl(meal.imageUrl)}
+        src={ImageHelper.getImageUrl(meal.imageUrl!)}
         alt={"pic"}
       />
       <div dir={getDirection()} className={styles.column}>
