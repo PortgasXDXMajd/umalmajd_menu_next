@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, Fragment, useState } from "react";
 import { MealModel } from "../infrastructure/interfaces/IMeal";
 import Image from "next/image";
 import styles from "../styles/meal.module.css";
@@ -35,13 +35,17 @@ const Meal: FC<IProps> = ({ meal }) => {
         </div>
         <div dir={getDirection()} className={styles.column}>
           <h3>{isEn() ? meal.nameEn : meal.nameAr}</h3>
-          {isEn()
-            ? meal
-                .smallDescriptionEn!.split(/[;]+/)
-                .map((line) => <p key={line}>{line}</p>)
-            : meal
-                .smallDescriptionAr!.split(/[;]+/)
-                .map((line) => <p key={line}>{line}</p>)}
+          {meal.smallDescriptionEn == null ? (
+            <Fragment />
+          ) : isEn() ? (
+            meal
+              .smallDescriptionEn!.split(/[;]+/)
+              .map((line) => <p key={line}>{line}</p>)
+          ) : (
+            meal
+              .smallDescriptionAr!.split(/[;]+/)
+              .map((line) => <p key={line}>{line}</p>)
+          )}
           <h4>{meal.price} OMR</h4>
         </div>
       </motion.div>
