@@ -27,11 +27,11 @@ const Meal: FC<IProps> = ({ meal }) => {
           <h5>{meal.minsToOrder} min</h5>
         </div>
         <div className={isEn() ? styles.imageBox : styles.imageBoxAR}>
-          <Image
+          {/* <Image
             layout="fill"
             src={ImageHelper.getImageUrl(meal.topImageUrl!)}
             alt={"pic"}
-          />
+          /> */}
         </div>
         <div dir={getDirection()} className={styles.column}>
           <h3>{isEn() ? meal.nameEn : meal.nameAr}</h3>

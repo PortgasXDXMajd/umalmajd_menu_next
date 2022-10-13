@@ -26,7 +26,10 @@ const SearchBar: FC<IProps> = ({ onChange, onUpdate }) => {
   return (
     <div className={styles.row}>
       <div className={styles.container}>
-        <input onChange={(event) => onChange(event.target.value)} />
+        <input
+          placeholder={"search..."}
+          onChange={(event) => onChange(event.target.value)}
+        />
       </div>
       <button className={styles.langBotton} onClick={handleLang}>
         <p className={styles.langBottonLabel}>{isEn() ? `ع` : `EN`}</p>

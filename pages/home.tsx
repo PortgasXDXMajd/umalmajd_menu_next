@@ -49,7 +49,7 @@ const Home: NextPage<IProps> = ({ data }) => {
   });
 
   const handelSearch = (s: string) => {
-    if (s === "") {
+    if (!s) {
       setFilteredList([]);
       return;
     }
@@ -60,9 +60,7 @@ const Home: NextPage<IProps> = ({ data }) => {
           meal.nameEn.toLowerCase().includes(s) ||
           meal.nameAr.toLowerCase().includes(s)
         ) {
-          if (!filteredList.includes(meal)) {
-            newList = newList.concat(meal);
-          }
+          newList = newList.concat(meal);
         }
       });
     });
