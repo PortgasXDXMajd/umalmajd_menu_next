@@ -1,6 +1,6 @@
 import { FC, Fragment, useState } from "react";
 import { MealModel } from "../infrastructure/interfaces/IMeal";
-import Image from "next/image";
+import Image from "../components/Image";
 import styles from "../styles/meal.module.css";
 import { ImageHelper } from "../infrastructure/helpers/image_helper";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
@@ -27,11 +27,11 @@ const Meal: FC<IProps> = ({ meal }) => {
           <h5>{meal.minsToOrder} min</h5>
         </div>
         <div className={isEn() ? styles.imageBox : styles.imageBoxAR}>
-          {/* <Image
+          <Image
             layout="fill"
             src={ImageHelper.getImageUrl(meal.topImageUrl!)}
             alt={"pic"}
-          /> */}
+          />
         </div>
         <div dir={getDirection()} className={styles.column}>
           <h3>{isEn() ? meal.nameEn : meal.nameAr}</h3>
