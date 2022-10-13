@@ -1,5 +1,5 @@
 import { FC, Fragment, useState } from "react";
-import { MealModel } from "../infrastructure/interfaces/IMeal";
+import { IMeal, MealModel } from "../infrastructure/interfaces/IMeal";
 import Image from "../components/Image";
 import styles from "../styles/meal.module.css";
 import { ImageHelper } from "../infrastructure/helpers/image_helper";
@@ -10,7 +10,7 @@ import MealSheet from "../components/meal_sheet";
 import { getDirection, isEn } from "../infrastructure/helpers/lang_helper";
 
 interface IProps {
-  meal: MealModel;
+  meal: IMeal;
 }
 
 const Meal: FC<IProps> = ({ meal }) => {

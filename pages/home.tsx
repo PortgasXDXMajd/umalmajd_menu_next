@@ -98,7 +98,7 @@ const Home: NextPage<IProps> = ({ data }) => {
               <br />
               <br />
               {filteredList.map((meal) => (
-                <Meal key={meal.id} meal={new MealModel(meal)} />
+                <Meal key={makeid()} meal={meal} />
               ))}
             </motion.div>
           )}
@@ -115,3 +115,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await res.json();
   return { props: { data } };
 };
+
+export function makeid() {
+  var result = "";
+  var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var charactersLength = characters.length;
+  for (var i = 0; i < 5; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
